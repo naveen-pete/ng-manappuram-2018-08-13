@@ -1,0 +1,14 @@
+// var name1: string = 'hari';
+// var age: number = 25;
+// var isStudent: boolean = false;
+var name1;
+var age = 25;
+var isStudent = false;
+name1 = 'hari';
+console.log('name1:', name1);
+console.log('age:', age);
+console.log('isStudent:', isStudent);
+var a = 'krish', b;
+b = 100;
+console.log(a);
+console.log(b);
