@@ -1,0 +1,18 @@
+<h2>Data Binding Demo</h2>
+
+<div>
+  Product Name: {{ productName }}
+</div>
+
+<div>
+  <input type="text" name="name" [(ngModel)]="productName" />
+</div>
+
+<div>
+  <button type="button" (click)="onSubmit($event)">Submit</button>
+</div>
+
+
+<div>
+    Product Name: {{ productName }}
+  </div>
