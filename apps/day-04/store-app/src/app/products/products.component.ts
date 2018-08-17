@@ -1,33 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
 import { Product } from '../models/product';
+import { LoggerService } from '../services/logger.service';
+import { ProductsService } from '../services/products.service';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html'
 })
-export class ProductsComponent {
-  products: Product[] = [
-    {
-      name: 'Taj Mahal Tea',
-      description: 'Product information provided by the seller on the Website is not exhaustive',
-      price: 224,
-      isAvailable: true
-    },
-    {
-      name: 'Inalsa Oscar Steam Iron',
-      description: 'Wear crisp and crease-free clothes to work as you bring home the Inalsa Oscar steam iron',
-      price: 575,
-      isAvailable: false
-    },
-    {
-      name: 'Skullcandy Inkd Headset with mic',
-      description: 'Good for phone calls, okayish for music',
-      price: 900,
-      isAvailable: true
-    }
-  ];
+export class ProductsComponent implements OnInit {
+  products: Product[] = [];
 
-  onProductCreated(newProduct: Product) {
-    this.products.unshift(newProduct);
+  constructor(private logService: LoggerService, private prodService: ProductsService) {
+  }
+
+  ngOnInit() {
+    this.products = this.prodService.getProducts();
+    this.logService.log('Products initialized');
   }
 }
